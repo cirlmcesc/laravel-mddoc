@@ -1,0 +1,21 @@
+{
+    "name": "cirlmcesc/mddoc",
+    "description": "渲染md文件用于API文档展示",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cirlmcesc Ma",
+            "email": "cirlmcesc_ma@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mddoc\\Mddoc\\": "src/Mddoc/Mddoc"
+        }
+    }
+}
