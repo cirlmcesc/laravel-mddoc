@@ -1,21 +1,37 @@
 {
-    "name": "cirlmcesc/mddoc",
-    "description": "渲染md文件用于API文档展示",
-    "type": "composer-plugin",
+    "name": "cirlmcesc/laravel-mddoc",
+    "description": "渲染.md文件用于API文档展示",
     "license": "MIT",
+    "type": "laravel-package",
+    "keywords": ["laravel", "documentation", "md", "api-doc"],
     "authors": [
         {
             "name": "Cirlmcesc Ma",
             "email": "cirlmcesc_ma@163.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.1",
+        "illuminate/support": "5.*",
+        "erusev/parsedown": "^1.6"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.6"
     },
     "autoload": {
         "psr-4": {
-            "Mddoc\\Mddoc\\": "src/Mddoc/Mddoc"
+            "Cirlmcesc\\LaravelMddoc\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Cirlmcesc\\LaravelMddoc\\LaravelMddocServiceProvider"
+            ]
         }
     }
 }
