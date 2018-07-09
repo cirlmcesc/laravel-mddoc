@@ -1,6 +1,6 @@
 {
     "name": "cirlmcesc/laravel-mddoc",
-    "description": "渲染.md文件用于API文档展示",
+    "description": "read markdown file content rendering web page",
     "license": "MIT",
     "type": "laravel-package",
     "keywords": ["laravel", "documentation", "md", "api-doc"],
