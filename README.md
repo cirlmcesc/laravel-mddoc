@@ -1,10 +1,10 @@
-# Laravel 5 markdown document
+# Laravel 5 markdown documentation
 
 TL;DR
 -----
-Markdown document for Laravel 5.
+Markdown documentation for Laravel 5.
 **Install with composer, create a route to `MddocController`**.
-Automatic analysis of document folders, read markdown file content rendering web page, Highest support two level classification.
+Automatic analysis of documentation folders, read markdown file content rendering web page, Highest support two level classification.
 No public assets, automatic registration routing, UI interface based on [bootstrap v4.0](https://github.com/twbs/bootstrap) .
 Inspired by star7th's [showdoc](https://github.com/star7th/showdoc) (run in ThinkPHP).
 
@@ -32,17 +32,17 @@ php artisan vendor:publish --tag=config
 Usage
 -----
 **Generating a template with a artisan command**.
-The markdown file will be placed under the `document/` folder under the root directory.
+The markdown file will be placed under the `documentation/` folder under the root directory.
 You can also change the parameters in the configuration file to change the directory where the files are stored.
 ```
-php artisan make:document filename
+php artisan make:documentation filename
 ```
 
 Visit
 -----
 You can visit on
 ```
-http://www.example.com/document
+http://www.example.com/documentation
 ```
 
 The routing path can be changed in the published configuration file, or the automatic registration route is cancelled.

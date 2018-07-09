@@ -13,7 +13,7 @@ class GenerateMarkdownCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:document
+    protected $signature = 'make:documentation
                             {path : The file storage path}';
 
     /**

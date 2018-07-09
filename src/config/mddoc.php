@@ -5,7 +5,7 @@ return [
     /**
      * Set page title.
      */
-    "title" => "Document",
+    "title" => "Documentation",
 
     /**
      * Set index page content.
@@ -20,12 +20,12 @@ return [
     /**
      * Set router path.
      */
-    "route_path" => "/document/{first?}/{second?}/{third?}",
+    "route_path" => "/documentation/{first?}/{second?}/{third?}",
 
     /**
      * Set md files path.
      */
-    "markdown_files_path" => "/document",
+    "markdown_files_path" => "/documentation",
 
     /**
      * Set dict
