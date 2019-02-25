@@ -21,8 +21,11 @@
         "orchestra/testbench": "~3.6"
     },
     "autoload": {
+        "classmap": [
+            "src/commands"
+        ],
         "psr-4": {
-            "Cirlmcesc\\LaravelMddoc\\": "src/"
+            "Cirlmcesc\\LaravelMddoc\\": "src/Cirlmcesc/LaravelMddoc/"
         },
         "files": [
             "src/helpers.php"
