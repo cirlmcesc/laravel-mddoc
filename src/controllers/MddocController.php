@@ -6,7 +6,6 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-
 class MddocController extends Controller
 {
     /**
@@ -56,23 +55,5 @@ class MddocController extends Controller
             "directory" => $this->mddoc->buildDirectoryTree(),
             "documentation" => $this->mddoc->readMarkdownContent($request_url),
         ]);
-    }
-
-    /**
-     * Show assets resources function.
-     *
-     * @param String $type
-     * @return Response
-     */
-    public function assets(String $type) : Response
-    {
-        $response = new Response(
-            $this->mddoc->dumpAssetsToString($type), 200,[
-                'Content-Type' => $type === 'js' ? "text/javascript" : "text/css",
-            ]);
-
-        return $response->setSharedMaxAge($this->assets_cache_sec)
-            ->setMaxAge($this->assets_cache_sec)
-            ->setExpires(new \DateTime('+1 year'));
     }
 }

@@ -2,9 +2,9 @@
 
 namespace Cirlmcesc\LaravelMddoc;
 
+use Illuminate\Support\Str;
 use ErrorException;
 use Parsedown;
-
 
 class LaravelMddoc
 {
@@ -46,15 +46,6 @@ class LaravelMddoc
         $this->current_files_path = base_path() . config("mddoc.markdown_files_path");
 
         $this->parsedown = new Parsedown();
-
-        $this->assets = [
-            'js' => [
-                __DIR__ . "/../../views/assets/js/mddoc.js",
-            ],
-            'css' => [
-                __DIR__ . "/../../views/assets/css/mddoc.css",
-            ],
-        ];
     }
 
     /**
@@ -82,7 +73,7 @@ class LaravelMddoc
                 $current_fullpath = "{$markdown_files_path}/{$filename}";
 
                 if (! in_array($filename, $this->donot_read) && (
-                    ends_with($filename, ".md") || is_dir($current_fullpath)
+                    Str::endsWith($filename, ".md") || is_dir($current_fullpath)
                 )) {
                     $filename = str_replace(".md", "", $filename);
 
@@ -141,7 +132,7 @@ class LaravelMddoc
     {
         $dict = config("mddoc.dict");
 
-        return array_key_exists($filename, $dict) ? $dict[$filename] : title_case($filename);
+        return array_key_exists($filename, $dict) ? $dict[$filename] : Str::title($filename);
     }
 
     /**

@@ -4,7 +4,6 @@ namespace Cirlmcesc\LaravelMddoc;
 
 use Illuminate\Support\ServiceProvider;
 
-
 class LaravelMddocServiceProvider extends ServiceProvider
 {
     /**
@@ -52,6 +51,10 @@ class LaravelMddocServiceProvider extends ServiceProvider
         /**
          * View
          */
-        $this->loadViewsFrom(__DIR__."/../../views", 'laravelmddoc');
+        $this->loadViewsFrom(__DIR__."/../../resources/views", 'laravelmddoc');
+
+        $this->publishes([
+            __DIR__.'/../../public' => public_path('vendor/mddoc'),
+        ], 'public');
     }
 }

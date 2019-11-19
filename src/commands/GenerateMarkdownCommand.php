@@ -5,7 +5,6 @@ namespace Cirlmcesc\LaravelMddoc;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
-
 class GenerateMarkdownCommand extends Command
 {
     /**
