@@ -1,11 +1,11 @@
-# Laravel 5 markdown documentation
+# Laravel markdown documentation
 
 TL;DR
 -----
-Markdown documentation for Laravel 5.
+Markdown documentation for Laravel.
 **Install with composer, create a route to `MddocController`**.
 Automatic analysis of documentation folders, read markdown file content rendering web page, Highest support two level classification.
-No public assets, automatic registration routing, UI interface based on [bootstrap v4.0](https://github.com/twbs/bootstrap) .
+No public assets, automatic registration routing, UI based on [Antd Desgin Vue](https://github.com/vueComponent/ant-design-vue) .
 Inspired by star7th's [showdoc](https://github.com/star7th/showdoc) (run in ThinkPHP).
 
 
@@ -21,13 +21,14 @@ Add Service Provider to `config/app.php` in `providers` section
 Cirlmcesc\LaravelMddoc\LaravelMddocServiceProvider::class,
 ```
 
-Configure
----------
-**Optionally** publish configuration file into `config/`
+Then run the following command to **publish the resource**:
+```
+php artisan mddoc:install
+```
+
+**Configuration file** will be published to `config/`
 The mode of operation can be customized by modifying parameters and attributes.
-```
-php artisan vendor:publish --tag=config
-```
+
 
 Usage
 -----
