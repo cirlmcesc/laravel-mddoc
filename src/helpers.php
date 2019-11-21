@@ -31,63 +31,14 @@ if (! function_exists("has_subdir")) {
     }
 }
 
-if (! function_exists("doc_url") ){
+if (! function_exists("buildMenuKey")) {
     /**
-     * Generate documentation url function.
+     * Build menu key string function.
      *
      * @return String
      */
-    function doc_url() : String {
-        return url("/documentation/".implode("/", func_get_args()));
-    }
-}
-
-if (! function_exists("collapse_id")) {
-    /**
-     * Generate collapse item id function.
-     *
-     * @return String
-     */
-    function collapse_id() : String {
+    function buildMenuKey() : String
+    {
         return implode("-", func_get_args());
-    }
-}
-
-if (! function_exists("show_collapse")) {
-    /**
-     * Generate show or collapse string function.
-     *
-     * @param String $menu
-     * @param String $url
-     * @return String
-     */
-    function show_collapse(String $menu, String $url) : String {
-        return $menu === $url ? "show" : "collapse";
-    }
-}
-
-if (! function_exists("font_bold")) {
-    /**
-     * Generate font bold class string function.
-     *
-     * @param String $menu
-     * @param String $url
-     * @return String
-     */
-    function font_bold(String $menu, String $url) : String {
-        return $menu === $url ? "font-weight-bold" : "";
-    }
-}
-
-if (! function_exists("folding_symbol")) {
-    /**
-     * Generate folding symbol string function.
-     *
-     * @param String $menu
-     * @param String $url
-     * @return String
-     */
-    function folding_symbol(String $menu, String $url) : String {
-        return $menu === $url ? "-" : "+";
     }
 }

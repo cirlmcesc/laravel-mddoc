@@ -44,7 +44,6 @@ class LaravelMddoc
     public function __construct()
     {
         $this->current_files_path = base_path() . config("mddoc.markdown_files_path");
-
         $this->parsedown = new Parsedown();
     }
 
@@ -79,7 +78,7 @@ class LaravelMddoc
 
                     $title_filename = $this->dict($filename);
 
-                    $bash_array[$title_filename]["url"] = $filename;
+                    $bash_array[$title_filename]["url"] = strtolower($filename);
 
                     if (is_dir($current_fullpath)) {
                         $bash_array[$title_filename]["children_directory"] = $this->serializeFilesPath(
@@ -104,6 +103,10 @@ class LaravelMddoc
      */
     public function readMarkdownContent(String $request_url) : String
     {
+        $request_url = $request_url == "/"
+            ? $request_url
+            : "/" . str_replace("-", "/", $request_url);
+
         if ($request_url === "/") {
             $index_content = config("mddoc.index_content");
 
@@ -113,7 +116,7 @@ class LaravelMddoc
 
             $path = base_path() . "/{$index_content}";
         } else {
-            $path = "{$this->current_files_path}{$request_url}.md";
+            $path = "{$this->current_files_path}/{$request_url}.md";
         }
 
         try {
@@ -160,19 +163,22 @@ class LaravelMddoc
     }
 
     /**
-     * Dump assets to string function.
+     * Build menu selected keys array function.
      *
-     * @param String $type
+     * @param String $path
      * @return String
-     */
-    public function dumpAssetsToString(String $type) : String
+     */    
+    public function buildMenuKey(String $path = "/") : Array
     {
-        $content = "";
+        $keys = explode("-", $path);
+        $res = [];
 
-        foreach ($this->assets[$type] as $file) {
-            $content .= file_get_contents($file);
+        foreach ($keys as $index => $key) {
+            $res[] = $index == 0
+                ? $key
+                : $res[count($res) - 1] . "-" . $key;
         }
 
-        return $content;
-    }
+        return $res;
+    } 
 }

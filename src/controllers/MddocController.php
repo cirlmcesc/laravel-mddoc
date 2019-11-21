@@ -3,7 +3,9 @@
 namespace Cirlmcesc\LaravelMddoc;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class MddocController extends Controller
@@ -35,25 +37,17 @@ class MddocController extends Controller
     /**
      * Show page view function.
      *
-     * @param string $first_menu
-     * @param string $second_menu
-     * @param string $third_menu
      * @return Illuminate\View\View
      */
-    public function view($first_menu = "", $second_menu = "", $third_menu = "") : View
+    public function view(String $path = "/") : View
     {
-        $request_url = "/" . ($first_menu == "" ? "" : $first_menu) .
-            ($second_menu == "" ? "" : "/" . $second_menu) .
-            ($third_menu == "" ? "" : "/" . $third_menu);
-
         return view("laravelmddoc::mddoc", [
             "title" => config('mddoc.title'),
-            "current_file" => $this->mddoc->getCurrentFileName($request_url),
-            "first_menu" => $first_menu,
-            "second_menu" => $second_menu,
-            "third_menu" => $third_menu,
             "directory" => $this->mddoc->buildDirectoryTree(),
-            "documentation" => $this->mddoc->readMarkdownContent($request_url),
+            "markdown_content" => $this->mddoc->readMarkdownContent($path),
+            "route_path" => str_replace('/{path?}', '', config('mddoc.route_path')),
+            "menu_seleced" => $this->mddoc->buildMenuKey($path),
+            "selected_key" => $path,
         ]);
     }
 }

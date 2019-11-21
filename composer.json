@@ -23,7 +23,7 @@
     },
     "autoload": {
         "classmap": [
-            "src/commands"
+            "src/Console"
         ],
         "psr-4": {
             "Cirlmcesc\\LaravelMddoc\\": "src/"
