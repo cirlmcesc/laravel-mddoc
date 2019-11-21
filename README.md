@@ -21,8 +21,8 @@ Add Service Provider to `config/app.php` in `providers` section
 Cirlmcesc\LaravelMddoc\LaravelMddocServiceProvider::class,
 ```
 
-Then run the following command to **publish the resource**:
-**Configuration file** will be published to `config/`
+Then run the following command to **publish the resource**.
+**Configuration file** will be published to `config/`.
 The mode of operation can be customized by modifying parameters and attributes.
 ```
 php artisan mddoc:install
