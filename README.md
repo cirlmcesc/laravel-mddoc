@@ -22,12 +22,11 @@ Cirlmcesc\LaravelMddoc\LaravelMddocServiceProvider::class,
 ```
 
 Then run the following command to **publish the resource**:
+**Configuration file** will be published to `config/`
+The mode of operation can be customized by modifying parameters and attributes.
 ```
 php artisan mddoc:install
 ```
-
-**Configuration file** will be published to `config/`
-The mode of operation can be customized by modifying parameters and attributes.
 
 
 Usage
