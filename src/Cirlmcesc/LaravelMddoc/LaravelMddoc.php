@@ -78,7 +78,7 @@ class LaravelMddoc
 
                     $title_filename = $this->dict($filename);
 
-                    $bash_array[$title_filename]["url"] = strtolower($filename);
+                    $bash_array[$title_filename]["url"] = $filename;
 
                     if (is_dir($current_fullpath)) {
                         $bash_array[$title_filename]["children_directory"] = $this->serializeFilesPath(
@@ -112,14 +112,6 @@ class LaravelMddoc
 
             $path = base_path() . "/{$index_content}";
         } else {
-            $paths = explode("-", $request_url);
-
-            foreach ($paths as $index => $path) {
-                $paths[$index] = ucfirst(strtolower($path));
-            }
-
-            $request_url = implode("/", $paths);
-
             $path = "{$this->current_files_path}/{$request_url}.md";
         }
 
