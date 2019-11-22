@@ -112,6 +112,8 @@ class LaravelMddoc
 
             $path = base_path() . "/{$index_content}";
         } else {
+            $request_url = str_replace("-", "/", $request_url);
+
             $path = "{$this->current_files_path}/{$request_url}.md";
         }
 
