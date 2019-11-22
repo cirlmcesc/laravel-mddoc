@@ -12,8 +12,8 @@
 	<div id="app">
 		<a-layout>
 			<a-layout-header>
-				<a-row type="flex" justify="start" :gutter="8">
-					<a-col :span="4">
+				<a-row type="flex" justify="start" :gutter="12">
+					<a-col :span="12">
 						<h2 style="color: #fff;margin-top: 8px;">{{ $title }}</h2>
 					</a-col>
 				</a-row>
@@ -81,6 +81,6 @@
 			</a-layout>
 		</a-layout>
 	</div>
-	<script src="{{ mix('mddoc/mddoc.js') }}"></script>
+	<script src="{{ asset('mddoc/mddoc.js') }}"></script>
 </body>
 </html>

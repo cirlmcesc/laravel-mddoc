@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css'
 import MarkdownMenu from './components/MarkdownMenu.vue'
 import MarkdownContent from './components/MarkdownContent.vue'
 import 'github-markdown-css'
-import jQuery from 'jQuery'
+import jQuery from 'jquery'
 
 Vue.use(Antd)
 
