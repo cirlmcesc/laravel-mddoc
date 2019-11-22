@@ -103,10 +103,6 @@ class LaravelMddoc
      */
     public function readMarkdownContent(String $request_url) : String
     {
-        $request_url = $request_url == "/"
-            ? $request_url
-            : "/" . str_replace("-", "/", $request_url);
-
         if ($request_url === "/") {
             $index_content = config("mddoc.index_content");
 
@@ -116,6 +112,14 @@ class LaravelMddoc
 
             $path = base_path() . "/{$index_content}";
         } else {
+            $paths = explode("-", $request_url);
+
+            foreach ($paths as $index => $path) {
+                $paths[$index] = ucfirst(strtolower($path));
+            }
+
+            $request_url = implode("/", $paths);
+
             $path = "{$this->current_files_path}/{$request_url}.md";
         }
 
