@@ -23,7 +23,7 @@ Vue.prototype.$jQuery = jQuery
 new Vue({
   el: '#app',
   components: {
-    "m-menu": MarkdownMenu, 
+    "m-menu": MarkdownMenu,
     "m-content": MarkdownContent,
   },
 })

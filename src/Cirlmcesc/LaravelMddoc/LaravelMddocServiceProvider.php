@@ -20,7 +20,7 @@ class LaravelMddocServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__."/../../../config/mddoc.php", "mddoc");
+        $this->mergeConfigFrom(__DIR__ . "/../../../config/mddoc.php", "mddoc");
     }
 
     /**
@@ -43,19 +43,19 @@ class LaravelMddocServiceProvider extends ServiceProvider
         /**
          * Config
          */
-        $this->loadRoutesFrom(__DIR__."/../../routes.php");
+        $this->loadRoutesFrom(__DIR__ . "/../../routes.php");
 
         $this->publishes([
-            __DIR__."/../../../config/mddoc.php" => config_path("mddoc.php"),
+            __DIR__ . "/../../../config/mddoc.php" => config_path("mddoc.php"),
         ], "mddoc-config");
 
         /**
          * View
          */
-        $this->loadViewsFrom(__DIR__."/../../../views", 'laravelmddoc');
+        $this->loadViewsFrom(__DIR__ . "/../../../views", 'laravelmddoc');
 
         $this->publishes([
-            __DIR__.'/../../../public' => public_path("mddoc"),
+            __DIR__ . '/../../../public' => public_path("mddoc"),
         ], "mddoc-resources");
     }
 }

@@ -15,7 +15,7 @@ return [
     /**
      * Set automatically registered router
      */
-    "auto_regist_route" => TRUE,
+    "auto_regist_route" => true,
 
     /**
      * Set router.

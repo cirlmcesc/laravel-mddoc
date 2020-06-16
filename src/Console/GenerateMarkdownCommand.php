@@ -68,9 +68,9 @@ class GenerateMarkdownCommand extends Command
     {
         $pathinput = $this->getPathInput();
 
-        if ((! $this->hasOption('force') ||
-             ! $this->option('force')) &&
-             $this->alreadyExists($pathinput)) {
+        if ((!$this->hasOption('force') ||
+            !$this->option('force')) &&
+            $this->alreadyExists($pathinput)) {
             $this->error('Markdown file already exists !');
 
             return false;
@@ -96,7 +96,7 @@ class GenerateMarkdownCommand extends Command
     {
         $path = $this->mddoc->current_files_path . str_start($path, "/");
 
-        if (! $this->filesystem->isDirectory(dirname($path))) {
+        if (!$this->filesystem->isDirectory(dirname($path))) {
             $this->filesystem->makeDirectory(dirname($path), 0777, true, true);
         }
 
@@ -108,7 +108,7 @@ class GenerateMarkdownCommand extends Command
      *
      * @return string
      */
-    private function getPathInput() : String
+    private function getPathInput(): String
     {
         return trim($this->argument('path'));
     }

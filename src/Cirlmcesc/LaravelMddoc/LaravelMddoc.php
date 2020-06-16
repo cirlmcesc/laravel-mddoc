@@ -2,8 +2,8 @@
 
 namespace Cirlmcesc\LaravelMddoc;
 
-use Illuminate\Support\Str;
 use ErrorException;
+use Illuminate\Support\Str;
 use Parsedown;
 
 class LaravelMddoc
@@ -35,7 +35,7 @@ class LaravelMddoc
      * @var array
      */
     private $donot_read = [
-        '.svn', '.git', '.', '..', '.DS_Store'
+        '.svn', '.git', '.', '..', '.DS_Store',
     ];
 
     /**
@@ -52,7 +52,7 @@ class LaravelMddoc
      *
      * @return Array
      */
-    public function buildDirectoryTree() : Array
+    public function buildDirectoryTree(): array
     {
         return $this->serializeFilesPath($this->current_files_path);
     }
@@ -63,7 +63,7 @@ class LaravelMddoc
      * @param String $markdown_files_path
      * @return Array
      */
-    private function serializeFilesPath(String $markdown_files_path) : Array
+    private function serializeFilesPath(String $markdown_files_path): array
     {
         $bash_array = [];
 
@@ -71,7 +71,7 @@ class LaravelMddoc
             foreach (scandir($markdown_files_path) as $filename) {
                 $current_fullpath = "{$markdown_files_path}/{$filename}";
 
-                if (! in_array($filename, $this->donot_read) && (
+                if (!in_array($filename, $this->donot_read) && (
                     Str::endsWith($filename, ".md") || is_dir($current_fullpath)
                 )) {
                     $filename = str_replace(".md", "", $filename);
@@ -86,7 +86,7 @@ class LaravelMddoc
                     }
                 }
             }
-        } catch(ErrorException $error) {
+        } catch (ErrorException $error) {
             logger($error);
 
             return $bash_array;
@@ -101,7 +101,7 @@ class LaravelMddoc
      * @param String $request_url
      * @return String
      */
-    public function readMarkdownContent(String $request_url) : String
+    public function readMarkdownContent(String $request_url): String
     {
         if ($request_url === "/") {
             $index_content = config("mddoc.index_content");
@@ -129,7 +129,7 @@ class LaravelMddoc
      *
      * @return void
      */
-    public function dict(String $filename) : String
+    public function dict(String $filename): String
     {
         $dict = config("mddoc.dict");
 
@@ -142,7 +142,7 @@ class LaravelMddoc
      * @param String $request_url
      * @return String
      */
-    public function getCurrentFileName(String $request_url) : String
+    public function getCurrentFileName(String $request_url): String
     {
         return $this->dict(collect(explode("/", $request_url))->last());
     }
@@ -153,7 +153,7 @@ class LaravelMddoc
      * @param String $markdown_content
      * @return String
      */
-    public static function parseMarkdownContent(String $markdown_content) : String
+    public static function parseMarkdownContent(String $markdown_content): String
     {
         $parsedown = new Parsedown();
 
@@ -165,18 +165,18 @@ class LaravelMddoc
      *
      * @param String $path
      * @return String
-     */    
-    public function buildMenuKey(String $path = "/") : Array
+     */
+    public function buildMenuKey(String $path = "/"): array
     {
         $keys = explode("-", $path);
         $res = [];
 
         foreach ($keys as $index => $key) {
             $res[] = $index == 0
-                ? $key
-                : $res[count($res) - 1] . "-" . $key;
+            ? $key
+            : $res[count($res) - 1] . "-" . $key;
         }
 
         return $res;
-    } 
+    }
 }

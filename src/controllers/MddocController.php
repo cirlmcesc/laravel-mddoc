@@ -3,9 +3,6 @@
 namespace Cirlmcesc\LaravelMddoc;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 
 class MddocController extends Controller
@@ -39,7 +36,7 @@ class MddocController extends Controller
      *
      * @return Illuminate\View\View
      */
-    public function view(String $path = "/") : View
+    public function view(String $path = "/"): View
     {
         return view("laravelmddoc::mddoc", [
             "title" => config('mddoc.title'),
