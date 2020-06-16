@@ -4,6 +4,7 @@ namespace Cirlmcesc\LaravelMddoc;
 
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
+use Cirlmcesc\LaravelMddoc\LaravelMddoc;
 
 class MddocController extends Controller
 {
