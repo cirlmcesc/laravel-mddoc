@@ -35,8 +35,8 @@ class LaravelMddocServiceProvider extends ServiceProvider
          */
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Cirlmcesc\LaravelMddoc\GenerateMarkdownCommand::class,
-                \Cirlmcesc\LaravelMddoc\InstallCommand::class,
+                \Cirlmcesc\LaravelMddoc\Console\GenerateMarkdownCommand::class,
+                \Cirlmcesc\LaravelMddoc\Console\InstallCommand::class,
             ]);
         }
 

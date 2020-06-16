@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirlmcesc\LaravelMddoc;
+namespace Cirlmcesc\LaravelMddoc\Console;
 
 use Illuminate\Console\Command;
 
