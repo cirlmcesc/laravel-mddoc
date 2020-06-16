@@ -28,7 +28,10 @@
     },
     "autoload": {
         "classmap": [
-            "src/Console"
+            "src/Commands",
+            "src/Controllers",
+            "src/Providers",
+            "src"
         ],
         "psr-4": {
             "Cirlmcesc\\LaravelMddoc\\": "src/"
@@ -40,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Cirlmcesc\\LaravelMddoc\\LaravelMddocServiceProvider"
+                "Cirlmcesc\\LaravelMddoc\\Providers\\LaravelMddocServiceProvider"
             ]
         }
     }
