@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirlmcesc\LaravelMddoc;
+namespace Cirlmcesc\LaravelMddoc\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\View\View;
