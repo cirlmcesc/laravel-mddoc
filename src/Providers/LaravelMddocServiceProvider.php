@@ -55,7 +55,7 @@ class LaravelMddocServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . "/../../views", 'laravelmddoc');
 
         $this->publishes([
-            __DIR__ . '/../../public/vendor' => public_path("mddoc"),
+            __DIR__ . '/../../public' => public_path("vendor/mddoc"),
         ], "mddoc-resources");
     }
 }
