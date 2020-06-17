@@ -81,6 +81,6 @@
 			</a-layout>
 		</a-layout>
 	</div>
-	<script src="{{ asset('mddoc/mddoc.js') }}"></script>
+	<script src="{{ asset('vendor/mddoc/mddoc.js') }}"></script>
 </body>
 </html>
