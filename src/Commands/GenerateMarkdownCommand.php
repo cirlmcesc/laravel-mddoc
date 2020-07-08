@@ -2,9 +2,10 @@
 
 namespace Cirlmcesc\LaravelMddoc\Commands;
 
+use Cirlmcesc\LaravelMddoc\LaravelMddoc;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Cirlmcesc\LaravelMddoc\LaravelMddoc;
+use Illuminate\Support\Str;
 
 class GenerateMarkdownCommand extends Command
 {
@@ -81,7 +82,7 @@ class GenerateMarkdownCommand extends Command
 
         $this->filesystem->copy(
             $this->template_file_path,
-            $this->mddoc->current_files_path . (str_start($pathinput, "/")) . ".md"
+            $this->mddoc->current_files_path . (Str::start($pathinput, "/")) . ".md"
         );
 
         $this->info('Markdown file created successfully.');
@@ -95,7 +96,7 @@ class GenerateMarkdownCommand extends Command
      */
     private function makeDirectory($path)
     {
-        $path = $this->mddoc->current_files_path . str_start($path, "/");
+        $path = $this->mddoc->current_files_path . Str::start($path, "/");
 
         if (!$this->filesystem->isDirectory(dirname($path))) {
             $this->filesystem->makeDirectory(dirname($path), 0777, true, true);
@@ -123,6 +124,6 @@ class GenerateMarkdownCommand extends Command
     private function alreadyExists($filepath)
     {
         return $this->filesystem->exists(
-            $this->mddoc->current_files_path . str_start($filepath, "/") . ".md");
+            $this->mddoc->current_files_path . Str::start($filepath, "/") . ".md");
     }
 }
